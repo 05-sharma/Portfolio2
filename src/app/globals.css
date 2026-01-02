@@ -1,5 +1,5 @@
 /* Base styles */
-html, body {
+body, html {
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
@@ -9,25 +9,14 @@ html, body {
   overflow-x: hidden;
 }
 
-/* Gradient text (merged + optimized) */
+/* Gradient text */
 .gradient-text {
-  background: linear-gradient(90deg, #7f00ff, #e100ff);
-  background-size: 200% 200%;
+  background: linear-gradient(90deg, #3b82f6, #ec4899, #8b5cf6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.animated-gradient {
-  animation: gradientMove 4s ease infinite;
-}
-
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Glow utility */
+/* Glow effect */
 .glow {
   box-shadow: 0 0 40px rgba(139, 92, 246, 0.35);
 }
@@ -46,13 +35,11 @@ section {
   z-index: 1;
 }
 
-/* Navbar (fixed width issue) */
+/* Navbar */
 nav {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
+  width: 95%;
   padding: 1rem 2rem;
   backdrop-filter: blur(10px);
   z-index: 50;
@@ -74,7 +61,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #e100ff;
+  color: #ec4899;
 }
 
 /* Background shapes */
@@ -84,7 +71,6 @@ nav ul li a:hover {
   filter: blur(200px);
   z-index: 0;
   opacity: 0.6;
-  will-change: transform;
 }
 
 .hero-shape1 {
@@ -103,38 +89,6 @@ nav ul li a:hover {
   right: -150px;
 }
 
-/* Hero glow */
-.hero-glow {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, #7f00ff40, transparent);
-  filter: blur(80px);
-  z-index: -1;
-}
-
-.hero-glow.left {
-  top: 10%;
-  left: -100px;
-}
-
-.hero-glow.right {
-  bottom: 10%;
-  right: -100px;
-}
-
-/* About glow */
-.about-glow {
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  background: radial-gradient(circle, #e100ff40, transparent);
-  filter: blur(90px);
-  top: 20%;
-  left: -150px;
-  z-index: -1;
-}
-
 /* Marquee */
 .marquee {
   overflow: hidden;
@@ -145,8 +99,7 @@ nav ul li a:hover {
 
 .marquee-content {
   display: inline-flex;
-  animation: marquee 12s linear infinite;
-  will-change: transform;
+  animation: marquee 10s linear infinite;
 }
 
 @keyframes marquee {
@@ -154,13 +107,12 @@ nav ul li a:hover {
   100% { transform: translateX(-100%); }
 }
 
-/* Skill logos (fixed transition bug) */
 .skill-logo {
   width: 88px;
   margin-right: 1rem;
   opacity: 0.88;
   filter: grayscale(100%);
-  transition: all 0.3s ease;
+  transition: all -0.1s ease;
 }
 
 .skill-logo:hover {
@@ -185,17 +137,52 @@ button:hover {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  section {
-    padding: 2rem 1rem;
-  }
+@media(max-width: 768px){
+  section { padding: 2rem 1rem; }
+  .hero-shape1, .hero-shape2 { display: none; }
+}
+.gradient-text {
+  background: linear-gradient(90deg, #7f00ff, #e100ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-  nav ul {
-    gap: 1.2rem;
-  }
+.animated-gradient {
+  background-size: 200% 200%;
+  animation: gradientMove 4s ease infinite;
+}
 
-  .hero-shape1,
-  .hero-shape2 {
-    display: none;
-  }
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #7f00ff40, transparent);
+  filter: blur(80px);
+  z-index: -1;
+}
+
+.hero-glow.left {
+  top: 10%;
+  left: -100px;
+}
+
+.hero-glow.right {
+  bottom: 10%;
+  right: -100px;
+}
+.about-glow {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, #e100ff40, transparent);
+  filter: blur(90px);
+  top: 20%;
+  left: -150px;
+  z-index: -1;
 }
