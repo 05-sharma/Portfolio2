@@ -12,17 +12,14 @@ const skills = [
   { name: "Photoshop", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" },
 ];
 
-// Container animation
+// Animations
 const containerVariants = {
   hidden: {},
   visible: {
-    transition: {
-      staggerChildren: 0.15,
-    },
+    transition: { staggerChildren: 0.15 },
   },
 };
 
-// Skill card animation
 const cardVariants = {
   hidden: { opacity: 0, y: 30, scale: 0.9 },
   visible: {
@@ -35,24 +32,11 @@ const cardVariants = {
 
 export default function Skills() {
   return (
-    <section
-      id="skills"
-      style={{
-        padding: "4rem 2rem",
-        textAlign: "center",
-        background: "radial-gradient(circle at top, #1a1a1a, #0a0a0a)",
-      }}
-    >
+    <section id="skills" className="skills">
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        style={{
-          fontSize: "2.5rem",
-          fontWeight: "bold",
-          marginBottom: "3rem",
-          color: "#fff",
-        }}
       >
         My Skills
       </motion.h2>
@@ -61,60 +45,88 @@ export default function Skills() {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: "2rem",
-        }}
+        className="skills-grid"
       >
-        {skills.map((skill, index) => (
+        {skills.map((skill) => (
           <motion.div
-            key={index}
+            key={skill.name}
             variants={cardVariants}
             whileHover={{
               scale: 1.12,
               rotate: 2,
-              boxShadow: "0px 0px 25px rgba(0, 255, 255, 0.9)",
+              boxShadow: "0 0 25px rgba(0, 255, 255, 0.8)",
             }}
             whileTap={{ scale: 0.95 }}
-            transition={{
-              type: "spring",
-              stiffness: 300,
-              damping: 15,
-            }}
-            style={{
-              width: "110px",
-              height: "120px",
-              borderRadius: "16px",
-              background: "rgba(255,255,255,0.06)",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              backdropFilter: "blur(10px)",
-              cursor: "pointer",
-            }}
+            className="skill-card"
           >
-            <Image
-              src={skill.logo}
-              alt={skill.name}
-              width={55}
-              height={55}
-            />
-            <span
-              style={{
-                marginTop: "0.6rem",
-                color: "#fff",
-                fontSize: "0.95rem",
-                fontWeight: "500",
-              }}
-            >
-              {skill.name}
-            </span>
+            <Image src={skill.logo} alt={skill.name} width={50} height={50} />
+            <span>{skill.name}</span>
           </motion.div>
         ))}
       </motion.div>
+
+      <style jsx>{`
+        .skills {
+          padding: 4rem 2rem;
+          text-align: center;
+          background: radial-gradient(circle at top, #1a1a1a, #0a0a0a);
+        }
+
+        h2 {
+          font-size: 2.5rem;
+          font-weight: bold;
+          margin-bottom: 3rem;
+          color: #fff;
+        }
+
+        .skills-grid {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 2rem;
+        }
+
+        .skill-card {
+          width: 110px;
+          height: 120px;
+          border-radius: 16px;
+          background: rgba(255, 255, 255, 0.06);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          backdrop-filter: blur(10px);
+          cursor: pointer;
+          transition: transform 0.2s ease;
+        }
+
+        .skill-card span {
+          margin-top: 0.6rem;
+          color: #fff;
+          font-size: 0.95rem;
+          font-weight: 500;
+        }
+
+        /* 📱 Mobile */
+        @media (max-width: 768px) {
+          h2 {
+            font-size: 2.1rem;
+          }
+
+          .skills-grid {
+            gap: 1.3rem;
+          }
+
+          .skill-card {
+            width: 90px;
+            height: 100px;
+          }
+
+          .skill-card span {
+            font-size: 0.85rem;
+          }
+        }
+      `}</style>
     </section>
   );
 }
