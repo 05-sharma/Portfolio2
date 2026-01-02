@@ -40,9 +40,9 @@ export default function Skills() {
       style={{
         padding: "4rem 2rem",
         textAlign: "center",
-        background: "radial-gradient(circle at top, #1a1a1a, #0a0a0a)",
       }}
     >
+       <div className="hero-glow left" />
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}

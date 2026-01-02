@@ -7,7 +7,7 @@ export default function Navbar() {
         justifyContent: "space-between",
         alignItems: "center",
         padding: "1rem 2rem",
-        background: "rgba(17, 17, 17, 0.6)", // semi-transparent
+        background: "rgba(11, 10, 18, 0.6)", // semi-transparent
         backdropFilter: "blur(10px)", // blurry background
         borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
         position: "fixed",
@@ -33,6 +33,9 @@ export default function Navbar() {
       </h1>
 
       <ul style={{ display: "flex", gap: "2rem", listStyle: "none" }}>
+        <li>
+          <a href="#home" className="nav-link">Home</a>
+        </li>
         <li>
           <a href="#about" className="nav-link">About</a>
         </li>

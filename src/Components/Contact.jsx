@@ -12,9 +12,10 @@ import {
 export default function Contact() {
   return (
     <section
-      style={{ padding: "5rem 2rem", position: "relative", background: "#111" }}
+      style={{ padding: "5rem 2rem", position: "relative" }}
       id="contact"
     >
+       <div className="hero-glow right" />
       <motion.h2
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -127,7 +128,7 @@ export default function Contact() {
 
             <motion.a
               whileHover={{ scale: 1.2 }}
-              href="https://www.instagram.com/_.sharma.k1805/"
+              href="https://www.instagram.com"
               target="_blank"
               rel="noreferrer"
               style={{ color: "#E4405F" }}
