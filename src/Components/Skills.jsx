@@ -9,112 +9,72 @@ const skills = [
   { name: "ReactJS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
   { name: "NextJS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
   { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
-  { name: "Photoshop", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" },
+  { name: "Photoshop", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg" },
+  { name: "PowerPoint", logo: "https://upload.wikimedia.org/wikipedia/commons/2/25/Microsoft_Office_PowerPoint_%282019%E2%80%932025%29.svg" },
+  { name: "Excel", logo: "https://upload.wikimedia.org/wikipedia/commons/7/73/Microsoft_Excel_2013-2019_logo.svg" },
+  { name: "Canva", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg" },
+  { name: "C", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg"},
 ];
 
-// Container animation
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
 
-// Skill card animation
-const cardVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.9 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { type: "spring", stiffness: 120 },
-  },
-};
+const infiniteSkills = [...skills, ...skills];
 
 export default function Skills() {
   return (
-    <section
-      id="skills"
-      style={{
-        padding: "4rem 2rem",
-        textAlign: "center",
-      }}
-    >
-       <div className="hero-glow left" />
+    <section style={{ padding: "4rem 0" }} id="skills">
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         style={{
-          fontSize: "2.5rem",
+          textAlign: "center",
+          fontSize: "2.8rem",
           fontWeight: "bold",
           marginBottom: "3rem",
-          color: "#fff",
         }}
       >
         My Skills
       </motion.h2>
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: "2rem",
-        }}
-      >
-        {skills.map((skill, index) => (
-          <motion.div
-            key={index}
-            variants={cardVariants}
-            whileHover={{
-              scale: 1.12,
-              rotate: 2,
-              boxShadow: "0px 0px 25px rgba(0, 255, 255, 0.9)",
-            }}
-            whileTap={{ scale: 0.95 }}
-            transition={{
-              type: "spring",
-              stiffness: 300,
-              damping: 15,
-            }}
-            style={{
-              width: "110px",
-              height: "120px",
-              borderRadius: "16px",
-              background: "rgba(255,255,255,0.06)",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              backdropFilter: "blur(10px)",
-              cursor: "pointer",
-            }}
-          >
-            <Image
-              src={skill.logo}
-              alt={skill.name}
-              width={55}
-              height={55}
-            />
-            <span
+      
+      <div style={{ overflow: "hidden", width: "100%" }}>
+        
+        <motion.div
+          style={{
+            display: "flex",
+            width: "max-content",
+          }}
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            ease: "linear",
+            duration: 20,
+            repeat: Infinity,
+          }}
+        >
+          {infiniteSkills.map((skill, index) => (
+            <div
+              key={index}
               style={{
-                marginTop: "0.6rem",
-                color: "#fff",
-                fontSize: "0.95rem",
-                fontWeight: "500",
+                minWidth: "120px",
+                height: "130px",
+                marginRight: "2rem",
+                borderRadius: "16px",
+                background: "rgba(255,255,255,0.08)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                backdropFilter: "blur(10px)",
               }}
             >
-              {skill.name}
-            </span>
-          </motion.div>
-        ))}
-      </motion.div>
+              <Image src={skill.logo} alt={skill.name} width={55} height={55} />
+              <span style={{ color: "#fff", marginTop: "0.6rem" }}>
+                {skill.name}
+              </span>
+            </div>
+          ))}
+        </motion.div>
+      </div>
     </section>
   );
 }

@@ -1,9 +1,10 @@
 import About from "@/Components/About";
 import Contact from "@/Components/Contact";
+import Courses from "@/Components/Courses";
 import Education from "@/Components/Education";
 import Hero from "@/Components/Hero";
 import Navbar from "@/Components/Navbar";
-import Project from "@/Components/Project";
+
 import Skills from "@/Components/Skills";
 
 
@@ -17,7 +18,8 @@ export default function Home() {
         <About />
         <Skills />
         <Education/>
-        <Project/>
+        <Courses/>
+       
         <Contact />
       </main>
     </>

@@ -15,33 +15,33 @@ export default function Contact() {
       style={{ padding: "5rem 2rem", position: "relative" }}
       id="contact"
     >
-       <div className="hero-glow right" />
+      <div className="hero-glow right" />
       <motion.h2
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
         style={{
           textAlign: "center",
           fontSize: "2.8rem",
           fontWeight: "bold",
-          marginBottom: "4rem",
-          color: "#fff",
+          marginBottom: "3rem",
         }}
       >
-        Contact Me
+      Contact Me
       </motion.h2>
 
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
+          gridTemplateColumns: "2fr 1fr", // <-- Make left side twice as wide as right
           gap: "3rem",
-          alignItems: "center",
+          alignItems: "start", // changed from "center" so form aligns to top
           maxWidth: "1100px",
           margin: "0 auto",
         }}
       >
-      
+
+
         <motion.div
           initial={{ opacity: 0, x: -80 }}
           animate={{ opacity: 1, x: 0 }}
@@ -83,7 +83,7 @@ export default function Contact() {
           </form>
         </motion.div>
 
-       
+
         <motion.div
           initial={{ opacity: 0, x: 80 }}
           animate={{ opacity: 1, x: 0 }}
@@ -149,7 +149,7 @@ export default function Contact() {
         </motion.div>
       </div>
 
-      
+
       <p
         style={{
           textAlign: "center",

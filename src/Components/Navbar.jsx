@@ -43,6 +43,12 @@ export default function Navbar() {
           <a href="#skills" className="nav-link">Skills</a>
         </li>
         <li>
+          <a href="#education" className="nav-link">Education</a>
+        </li>
+        <li>
+          <a href="#courses-workshops" className="nav-link">Courses</a>
+        </li>
+        <li>
           <a href="#contact" className="nav-link">Contact</a>
         </li>
       </ul>
